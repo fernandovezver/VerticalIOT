@@ -1,15 +1,29 @@
-import time
+# Made by: Andrés Ruiz Justo
+
+import random
+
 import pyupm_grove as grove
 import pyupm_buzzer as upmBuzzer
-button = grove.GroveButton(4)
-buzzer = upmBuzzer.buzzer(3)
+
+# Create the button object using D3.
+button = grove.GroveButton(3)
+
+# Create the buzzer object using D4.
+buzzer = upmBuzzer.Buzzer(4)
+
+# Define the chords to be played.
 chords = [upmBuzzer.DO, upmBuzzer.RE, upmBuzzer.MI, upmBuzzer.FA, 
           upmBuzzer.SOL, upmBuzzer.LA, upmBuzzer.SI, upmBuzzer.DO, 
           upmBuzzer.SI];
-if button.value()==1:
-	for chord_ind in range(0, 7):
-		print buzzer.playSound(chords[chord_ind], 1000000)
-    	time.sleep(0.1)
-print "Exit"
-del buzzer
+
+# Read the input and play a random sound from chords.
+while 1:
+    if button.value():
+        ran = random.randint(0, 8);
+        buzzer.playSound(chords[ran]);
+
+# Delete the button object.
 del button
+
+# Delete the buzzer object.
+del buzzer
