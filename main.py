@@ -6,11 +6,10 @@ buzzer = upmBuzzer.buzzer(3)
 chords = [upmBuzzer.DO, upmBuzzer.RE, upmBuzzer.MI, upmBuzzer.FA, 
           upmBuzzer.SOL, upmBuzzer.LA, upmBuzzer.SI, upmBuzzer.DO, 
           upmBuzzer.SI];
-while(1):
+if button.value()==1:
 	for chord_ind in range(0, 7):
 		print buzzer.playSound(chords[chord_ind], 1000000)
     	time.sleep(0.1)
-    time.sleep(1)
 print "Exit"
 del buzzer
 del button
